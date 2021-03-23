@@ -12,7 +12,7 @@ typedef struct {
     const uint16_t *data;
 } FontDef;
 
-typedef uint8_t benim;
+
 
 static const uint16_t Font7x10 [] = {
 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,  // sp
@@ -197,7 +197,7 @@ FontDef Font_7x10 = {7,10,Font7x10};
 
 
 void ST7789_Init(void);
-void ST7789_SetRotation(benim m);
+void ST7789_SetRotation(uint8_t m);
 void ST7789_Fill_Color(uint16_t color);
 
 
@@ -453,8 +453,6 @@ void ST7789_WriteData(uint8_t *gonder,uint16_t size)  //ST7789_SendData
 { 
 	
 	 GPIOA->BSRR |=1<<0; //dc 1 
-	 //SPI1->CR1 |= 1<<6;
-	//*((__IO uint8_t *)&SPI1->DR) =*gonder;
 	 SPI1->DR=*gonder;
 	 gonder++;
 	 size--;
